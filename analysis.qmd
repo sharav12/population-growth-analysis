@@ -1,0 +1,127 @@
+---
+title: "thing"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+#| message: false
+#| echo: false
+library(tidyverse)
+library(brms)
+library(readxl)
+library(bayesplot)
+
+
+```
+
+
+
+
+```{r}
+# Corrected file path with double backslashes
+file_path <- "C:\\Users\\vivek\\Desktop\\projects\\ultra-project\\table-metro-areas-hispanic-increase (1).xlsx"
+
+# Check if the file exists
+if (file.exists(file_path)) {
+  # Read the Excel file into a dataframe
+  data <- read_excel(file_path)
+  
+  # Preview the first 6 rows of the dataset
+  head(data)
+  
+  # Open the dataset in a spreadsheet-like viewer
+  View(data)
+  
+  # Get a summary of the dataset
+  summary(data)
+  
+  # Get the structure of the dataset
+  str(data)
+  
+  # Prepare example data for the Bayesian linear regression model
+  data <- data.frame(
+    y = rnorm(100, mean = 10, sd = 2),
+    x1 = rnorm(100),
+    x2 = rnorm(100)
+  )
+  
+  # Fit a Bayesian linear regression model
+  fit <- brm(
+    formula = y ~ x1 + x2,  
+    data = data,            
+    family = gaussian(),    
+    chains = 2,            
+    iter = 2000,            
+    warmup = 500,          
+    cores = 2,              
+    seed = 123              
+  )
+  
+  # Summary of the model
+  summary(fit)
+  
+  # Plot the posterior distributions with customized labels
+  posterior <- as_draws_df(fit)
+  p <- mcmc_trace(posterior, facet_args = list(ncol = 2)) +
+    labs(
+      title = "Posterior Distributions of Model Parameters",
+      x = "Parameter Value",
+      y = "Iteration"
+    ) +
+    theme_minimal()
+  
+  # Print the plot
+  print(p)
+  
+  # Extract and format the fixed effects
+  fixef_data <- as.data.frame(fixef(fit))
+  fixef_data$Parameter <- rownames(fixef_data)
+  fixef_data <- fixef_data %>% 
+    select(Parameter, Estimate, Est.Error, Q2.5, Q97.5)
+
+  # Print the formatted fixed effects table
+  print(fixef_data)
+
+  # Plot the fixed effects with labels
+  fixef_plot <- ggplot(fixef_data, aes(x = Parameter, y = Estimate, ymin = Q2.5, ymax = Q97.5)) +
+    geom_pointrange() +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    labs(
+      title = "Fixed Effects with 95% Credible Intervals",
+      x = "Parameter",
+      y = "Estimate"
+    ) +
+    theme_minimal()
+  
+  # Print the fixed effects plot
+  print(fixef_plot)
+  
+  # Check model diagnostics
+  pp_check(fit)
+} else {
+  stop("The specified file does not exist: ", file_path)
+}
+```
+

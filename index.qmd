@@ -1,0 +1,15 @@
+---
+
+title: "Home"
+
+author: "Your Name"
+
+format: html
+
+editor: visual
+
+---
+
+\# Welcome to the Bayesian Linear Regression Analysis Website
+
+This website presents the results of a Bayesian linear regression analysis.

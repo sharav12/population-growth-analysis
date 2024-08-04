@@ -1,0 +1,18 @@
+project:
+  type: website
+
+website:
+  title: "Bayesian Linear Regression Analysis"
+  navbar:
+    right:
+      - text: "Home"
+        href: index.qmd
+      - text: "Analysis"
+        href: analysis.qmd
+      - text: "About"
+        href: about.qmd
+
+format:
+  html:
+    theme: default
+    toc: true
