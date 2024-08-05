@@ -1,15 +1,24 @@
 ---
-
-title: "Home"
-
-author: "Your Name"
-
-format: html
-
-editor: visual
-
+title: "Population Growth Analysis"
 ---
 
-\# Welcome to the Bayesian Linear Regression Analysis Website
+# Introduction
 
-This website presents the results of a Bayesian linear regression analysis.
+This project analyzes the differences in growth between the Hispanic and non-Hispanic populations based on the U.S. Census Bureau's recent estimates.
+
+
+```{r}
+#| echo: false
+hispanic_growth <- c(63.85, 64.66, 65.22)
+years <- c(2021, 2022, 2023)
+plot(years, hispanic_growth, type="o", col="blue", xlab="Year", ylab="Population (in millions)", main="Hispanic Population Growth")
+
+
+non_hispanic_growth <- c(268.13, 269.24, 269.73)
+plot(years, non_hispanic_growth, type="o", col="red", xlab="Year", ylab="Population (in millions)", main="Non-Hispanic Population Growth")
+# Assuming brm_plot contains the BRM plot
+
+
+
+```
+
