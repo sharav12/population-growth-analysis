@@ -1,1 +1,2 @@
-# ultra-project
+# population growth analysis
+#The project "Population Growth Analysis: Hispanic vs. Non-Hispanic Trends" focuses on understanding the differences in population growth between these two groups. The data used in this analysis comes from the U.S. Census Bureau's Vintage 2023 Population Estimates, which we cleaned and prepared by extracting relevant growth figures for Hispanic and Non-Hispanic populations over the past few years. The variables are defined as the annual population estimates (in millions) for each group, measured across different years. The key takeaway from this analysis is that both the year and population group significantly influence growth trends, highlighting the dynamic demographic shifts within the U.S. population.
