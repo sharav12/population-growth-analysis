@@ -4,8 +4,6 @@ format: html
 editor: visual
 ---
 
-
-
 ```{r}
 #| message: false
 #| echo: false
@@ -142,12 +140,18 @@ ggplot(fixed_effects_df, aes(x = Parameter, y = Estimate)) +
 ```
 
 
+
+
+
 From the BRM plot, we can infer that:
 
 Age has a slightly negative impact on the outcome variable.
 Study Time Weekly has a positive and significant effect.
 Absences negatively impact the outcome.
 Parental Support and Tutoring positively affect the outcome.
+
+
+
 ```{r}
 
 
@@ -167,6 +171,4 @@ plot(years, non_hispanic_growth, type="o", col="red", xlab="Year", ylab="Populat
 
 
 ```
-
-
 

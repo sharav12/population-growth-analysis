@@ -1,0 +1,17 @@
+{
+  "hash": "93dbc766a59c9d7ea6f90d25d6075611",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"thing\"\nformat: html\neditor: visual\n---\n\n::: {.cell}\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: package 'brms' was built under R version 4.4.1\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: package 'readxl' was built under R version 4.4.1\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nWarning: package 'bayesplot' was built under R version 4.4.1\n```\n\n\n:::\n:::\n\n::: {.cell}\n::: {.cell-output .cell-output-stderr}\n\n```\nNew names:\nCompiling Stan program...\nStart sampling\nUsing 10 posterior draws for ppc type 'dens_overlay' by default.\n• `` -> `...2`\n• `` -> `...3`\n• `` -> `...4`\n• `` -> `...5`\n• `` -> `...6`\n• `` -> `...7`\n• `` -> `...8`\n• `` -> `...9`\n• `` -> `...10`\n```\n\n\n:::\n\n::: {.cell-output-display}\n![](analysis_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nCompiling Stan program...\nStart sampling\n```\n\n\n:::\n\n::: {.cell-output-display}\n![](analysis_files/figure-html/unnamed-chunk-2-2.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#|echo: false \n\n\n\nhispanic_growth <- c(63.85, 64.66, 65.22)\nyears <- c(2021, 2022, 2023)\nplot(years, hispanic_growth, type=\"o\", col=\"blue\", xlab=\"Year\", ylab=\"Population (in millions)\", main=\"Hispanic Population Growth\")\n```\n\n::: {.cell-output-display}\n![](analysis_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n\n```{.r .cell-code}\nnon_hispanic_growth <- c(268.13, 269.24, 269.73)\nplot(years, non_hispanic_growth, type=\"o\", col=\"red\", xlab=\"Year\", ylab=\"Population (in millions)\", main=\"Non-Hispanic Population Growth\")\n```\n\n::: {.cell-output-display}\n![](analysis_files/figure-html/unnamed-chunk-3-2.png){width=672}\n:::\n\n```{.r .cell-code}\n# Assuming brm_plot contains the BRM plot\n```\n:::\n",
+    "supporting": [
+      "analysis_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
